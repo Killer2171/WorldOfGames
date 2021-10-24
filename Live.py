@@ -1,4 +1,5 @@
 from GuessGame import *
+from MemoryGame import *
 
 def welcome(name):
     hello = ("\nHello %s and welcome to the World of Games (WoG)\n" 
@@ -44,6 +45,8 @@ def load_game():
                             difficult_number = 0
                         elif choose == 2:
                             print(play(difficult_number))
+                        elif choose == 1:
+                            play2(difficult_number)
                     else:
                         print(difficult_number_string)
 
