@@ -9,4 +9,4 @@ def add_score(difficulty=3):
         return total_score
 print(add_score())
 
-# POINTS_OF_WINNING = 3 *
+
