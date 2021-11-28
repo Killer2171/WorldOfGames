@@ -1,5 +1,8 @@
 from GuessGame import *
 from MemoryGame import *
+from Utils import *
+from MainScores import *
+
 
 def welcome(name):
     hello = ("\nHello %s and welcome to the World of Games (WoG)\n" 
