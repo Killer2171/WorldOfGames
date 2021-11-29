@@ -15,3 +15,4 @@ def add_score(difficulty=2):
             score_file.write(str(total_score))
             return "No Score file exist , Scores.txt created "
 
+print(add_score())
