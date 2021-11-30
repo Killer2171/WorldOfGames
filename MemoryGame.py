@@ -1,6 +1,6 @@
 from time import *
 from random import *
-import os
+from Utils import screen_cleaner
 
 
 
@@ -12,7 +12,7 @@ def generate_sequence(difficulty=str):
     random_list.sort()
     print(random_list)
     sleep(0.7)
-    os.system('cls')
+    screen_cleaner()
     return random_list
 
 
@@ -30,4 +30,4 @@ def is_list_equal(sys_list, user_list ):
 def play2(difficulty):
     sys_list = generate_sequence(difficulty)
     user_list = get_list_from_user()
-    print(is_list_equal(sys_list, user_list))
+    return is_list_equal(sys_list, user_list)

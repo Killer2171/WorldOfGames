@@ -1,7 +1,9 @@
 from GuessGame import *
 from MemoryGame import *
+from Score import add_score
 from Utils import *
-from MainScores import *
+
+
 
 
 def welcome(name):
@@ -47,9 +49,15 @@ def load_game():
                             print(range_number_message5)
                             difficult_number = 0
                         elif choose == 2:
-                            print(play(difficult_number))
+                            result = play(difficult_number)
+                            print(result)
+                            if result == True :
+                                add_score(difficulty=difficult_number)
                         elif choose == 1:
-                            play2(difficult_number)
+                            result = play2(difficult_number)
+                            print(result)
+                            if result == True :
+                                add_score(difficulty=difficult_number)
                     else:
                         print(difficult_number_string)
 
