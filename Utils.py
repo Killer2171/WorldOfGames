@@ -1,6 +1,5 @@
 import os
 
-
 SCORES_FILE_NAME = "scores.txt"
 
 
