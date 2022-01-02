@@ -8,8 +8,9 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-        bat "docker run -d -p 8777:5001 worldofgames:yaniv "
-
+         script {
+            container_id = bat(script: "docker run -d -p 8777:5001 worldofgames:yaniv", returnStdout: true).trim()
+         }
     }
     try{
       stage("3.DOCKER-TEST-SELENIUM"){
@@ -18,6 +19,6 @@ node(MY_AGENT){
 
         }
     catch(Exception ex) {
-      println("Catching the exception");
+      println(${container_id});
       }
 }
