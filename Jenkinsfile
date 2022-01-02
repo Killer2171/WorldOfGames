@@ -8,9 +8,9 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-         script {
+        script {
             container_id = bat(script: "docker run -d -p 8777:5001 worldofgames:yaniv", returnStdout: true).trim()
-         }
+       }
     }
     try{
       stage("3.DOCKER-TEST-SELENIUM"){
