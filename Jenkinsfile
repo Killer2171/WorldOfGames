@@ -8,7 +8,7 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-        bat "docker run -p 8777:5001 worldofgames:yaniv "
+        bat "docker run -d -p 8777:5001 worldofgames:yaniv "
 
     }
     stage("3.DOCKER-TEST-SELENIUM"){
