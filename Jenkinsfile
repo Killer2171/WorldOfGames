@@ -9,7 +9,7 @@ node(MY_AGENT){
     }
     stage("2.DOCKER-RUN"){
             GIT_COMMIT_EMAIL = bat (script: "docker run -d -p 8777:5001 worldofgames:yaniv ",returnStdout: true).trim()
-            bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
+//             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
             println $GIT_COMMIT_EMAIL
     }
     try{
