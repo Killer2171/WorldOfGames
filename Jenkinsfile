@@ -11,7 +11,14 @@ node(MY_AGENT){
         bat "docker run -d -p 8777:5001 worldofgames:yaniv "
 
     }
-    stage("3.DOCKER-TEST-SELENIUM"){
-        bat "python Test/e2e.py"
+    try{
+      stage("3.DOCKER-TEST-SELENIUM"){
+      bat "python Test/e2e.py"
+    }
+
+        }
+    catch(Exception ex) {
+      println("Catching the exception");
+      }
     }
 }
