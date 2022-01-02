@@ -7,7 +7,7 @@ my_driver = webdriver.Chrome(executable_path="c:/Users/yanivl/Downloads/chromedr
 
 def test_scores_service():
     result = ""
-    my_driver.get("http://127.0.0.1:5001")
+    my_driver.get("http://127.0.0.1:8777")
     score_value = int(my_driver.find_element_by_id('score').text)
 
     if 0 < score_value < 1001:
