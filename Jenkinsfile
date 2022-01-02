@@ -20,5 +20,4 @@ node(MY_AGENT){
     catch(Exception ex) {
       println("Catching the exception");
       }
-    }
 }
