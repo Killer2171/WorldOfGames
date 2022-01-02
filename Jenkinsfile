@@ -8,9 +8,9 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-        script {
-            container_id = sh(script: "docker run -d -p 8777:5001 worldofgames:yaniv", returnStdout: true).trim()
-       }
+            GIT_COMMIT_EMAIL = bat (script: "docker run -d -p 8777:5001 worldofgames:yaniv ",returnStdout: true).trim()
+            bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
+            println $GIT_COMMIT_EMAIL
     }
     try{
       stage("3.DOCKER-TEST-SELENIUM"){
@@ -19,6 +19,6 @@ node(MY_AGENT){
 
         }
     catch(Exception ex) {
-      println(${container_id});
+      println("Catching the exception");
       }
 }
