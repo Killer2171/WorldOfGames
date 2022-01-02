@@ -9,7 +9,7 @@ node(MY_AGENT){
     }
     stage("2.DOCKER-RUN"){
         script {
-            container_id = bat(script: "docker run -d -p 8777:5001 worldofgames:yaniv", returnStdout: true).trim()
+            container_id = sh(script: "docker run -d -p 8777:5001 worldofgames:yaniv", returnStdout: true).trim()
        }
     }
     try{
