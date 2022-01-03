@@ -5,5 +5,5 @@ services:
             FLASK_ENV: development
         ports:
             - '8777:5001'
-        image: 'worldofgames:yaniv'
+        image: 'worldofgames:yaniv:v01'
 

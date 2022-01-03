@@ -7,7 +7,7 @@ node(MY_AGENT){
         git branch: 'master', url: 'https://github.com/Killer2171/WorldOfGames.git'
     }
     stage("2.DOCKER-BUILD"){
-        bat "docker build -t worldofgames:yaniv . "
+        bat "docker build -t worldofgames:yaniv:v01 . "
     }
     stage("2.DOCKER-RUN-COMPOSE"){
         bat "docker-compose -f docker-compose.yml up -d"
