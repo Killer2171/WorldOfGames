@@ -10,6 +10,8 @@ node(MY_AGENT){
     stage("2.DOCKER-RUN"){
         def ret = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
         println ret
+        println ret
+        println ret
 //             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
     }
     try{
@@ -19,7 +21,6 @@ node(MY_AGENT){
 
         }
     catch(Exception ex) {
-        println ${ret}
-      println("Catching the exception");
+      println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
       }
 }
