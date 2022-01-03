@@ -10,8 +10,10 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-        def ret = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
-        ret()
+        def yaniv = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
+        println ret
+        println "docker rm  " + ret + "-f"
+
 
 //             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
     }
@@ -22,7 +24,7 @@ node(MY_AGENT){
 
         }
     catch(Exception ex) {
-      bat "docker rm" + ret() + "-f"
+      //bat "docker rm" + ret() + "-f"
       println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
       }
 }
