@@ -2,9 +2,12 @@ version: '3.3'
 services:
     worldofgames:
         build: .
+            dockerfile: Dockerfile
+            name: worldofgames1
+            tag: yaniv
         environment:
             FLASK_ENV: development
         ports:
             - '8777:5001'
-        image: 'worldofgames:yaniv'
+        image: 'worldofgames1:yaniv'
 
