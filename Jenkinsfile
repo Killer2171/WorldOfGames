@@ -8,9 +8,9 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-            GIT_COMMIT_EMAIL = bat (script: "docker run -d -p 8777:5001 worldofgames:yaniv ",returnStdout: true).trim()
+        def ret = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
+        println ret
 //             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
-        println ${GIT_COMMIT_EMAIL}
     }
     try{
       stage("3.DOCKER-TEST-SELENIUM"){
