@@ -32,3 +32,4 @@ node(MY_AGENT){
     stage("4.DOCKER-UPLOAD-IMAGE-DOCKER-HUB"){
         bat "docker push x1bullseye1x/worldofgamesyaniv:v01"
     }
+}
