@@ -10,9 +10,9 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-        def yaniv = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStatus: true)
-        println yaniv
-        println "docker rm  " + yaniv + "-f"
+        def yaniv = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
+        println ("Yaniv_result = ${yaniv}")
+        println "docker rm  " + yaniv + " -f"
 
 
 //             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
