@@ -29,7 +29,8 @@ node(MY_AGENT){
 
 //       println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
       }
-    stage("4.DOCKER-UPLOAD-IMAGE-DOCKER-HUB"){
+    stage("4.DOCKER-UPLOAD-IMAGE-DOCKER-HUB&Terminate container"){
+        bat "docker-compose -f docker-compose.yml down"
         bat "docker push x1bullseye1x/worldofgamesyaniv:v01"
     }
 }
