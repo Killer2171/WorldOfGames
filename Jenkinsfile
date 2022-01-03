@@ -19,7 +19,7 @@ node(MY_AGENT){
 
         }
     catch(Exception ex) {
-      println ret
+        println ${ret}
       println("Catching the exception");
       }
 }
