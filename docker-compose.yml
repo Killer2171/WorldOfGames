@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    worldofgames:
+        build: .
+        environment:
+            FLASK_ENV: development
+        ports:
+            - '8777:5001'
+        image: 'worldofgames:yaniv'
+

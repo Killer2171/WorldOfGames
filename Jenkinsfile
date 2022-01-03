@@ -10,10 +10,10 @@ node(MY_AGENT){
         bat "docker build -t worldofgames:yaniv . "
     }
     stage("2.DOCKER-RUN"){
-        def yaniv = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
-        println ("Yaniv_result = ${yaniv}")
-        println "docker rm  " + yaniv + " -f"
-
+        bat "docker-compose -f docker-compose.yml up -d"
+//         def yaniv = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
+//         println ("Yaniv_result = ${yaniv}")
+//         println "docker rm  " + yaniv + " -f"
 
 //             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
     }
@@ -24,7 +24,9 @@ node(MY_AGENT){
 
         }
     catch(Exception ex) {
+      bat "docker-compose -f docker-compose.yml down"
       //bat "docker rm" + ret() + "-f"
-      println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
+
+//       println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
       }
 }
