@@ -22,7 +22,7 @@ node(MY_AGENT){
 
         }
     catch(Exception ex) {
-      bat "docker rm ${ret} -f"
+      bat "docker rm" + ret + "-f"
       println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
       }
 }
