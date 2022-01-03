@@ -7,7 +7,7 @@ node(MY_AGENT){
         git branch: 'master', url: 'https://github.com/Killer2171/WorldOfGames.git'
     }
     stage("2.DOCKER-BUILD"){
-        bat "docker build -t worldofgames:yaniv:v01 . "
+        bat "docker build -t x1bullseye1x/worldofgamesyaniv:v01 ."
     }
     stage("2.DOCKER-RUN-COMPOSE"){
         bat "docker-compose -f docker-compose.yml up -d"
@@ -29,4 +29,6 @@ node(MY_AGENT){
 
 //       println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
       }
-}
+    stage("4.DOCKER-UPLOAD-IMAGE-DOCKER-HUB"){
+        bat "docker push x1bullseye1x/worldofgamesyaniv:v01"
+    }
