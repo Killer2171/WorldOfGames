@@ -1,9 +1,10 @@
 version: '3.3'
 services:
     worldofgames:
+        build: .
+        image: x1bullseye/worldofgameyaniv:v1
         environment:
             FLASK_ENV: development
         ports:
             - '8777:5001'
-        image: 'worldofgames:yaniv:v01'
 
