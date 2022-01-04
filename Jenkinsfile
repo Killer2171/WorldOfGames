@@ -9,18 +9,22 @@ node(MY_AGENT){
 //     stage("2.DOCKER-BUILD"){
 //         bat "docker build -t x1bullseye1x/worldofgamesyaniv:v01 ."
 //     }
-    stage("2.DOCKER-BUILD&RUN-COMPOSE"){
-        bat "docker-compose -f docker-compose.yml up -d"
+    stage("2.DOCKER-BUILD-COMPOSE"){
+        bat "docker-compose -f docker-compose.yml build"
 //         def yaniv = bat(script: 'docker run -d -p 8777:5001 worldofgames:yaniv', returnStdout: true).trim()
 //         println ("Yaniv_result = ${yaniv}")
 //         println "docker rm  " + yaniv + " -f"
 
 //             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
     }
+    stage("3.DOCKER-RUN-COMPOSE"){
+        bat "docker-compose -f docker-compose.yml up -d"
+    }
     try{
       stage("3.DOCKER-TEST-SELENIUM-AND-UPLOAD-IMAGE"){
       bat "python Test/e2e.py"
       bat "docker-compose -f docker-compose.yml down"
+      bat "docker-compose -f docker-compose.yml push"
     }
 
         }
