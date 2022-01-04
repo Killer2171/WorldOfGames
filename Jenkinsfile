@@ -18,8 +18,9 @@ node(MY_AGENT){
 //             bat yaniv = "docker run -d -p 8777:5001 worldofgames:yaniv "
     }
     try{
-      stage("3.DOCKER-TEST-SELENIUM"){
+      stage("3.DOCKER-TEST-SELENIUM-AND-UPLOAD-IMAGE"){
       bat "python Test/e2e.py"
+      bat "docker-compose -f docker-compose.yml down"
     }
 
         }
@@ -29,8 +30,8 @@ node(MY_AGENT){
 
 //       println("Catching the exception YANIVVVVVVVVVVVVVVVVV");
       }
-    stage("4.DOCKER-UPLOAD-IMAGE-DOCKER-HUB&Terminate container"){
-        bat "docker-compose -f docker-compose.yml down"
-        bat "docker push x1bullseye1x/worldofgamesyaniv:v01"
-    }
+//     stage("4.DOCKER-UPLOAD-IMAGE-DOCKER-HUB&Terminate container"){
+//         bat "docker-compose -f docker-compose.yml down"
+//         bat "docker push x1bullseye1x/worldofgamesyaniv:v01"
+//     }
 }
